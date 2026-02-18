@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, X } from 'lucide-react';
 
 function App() {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 1, 16)); // February 16, 2026
@@ -108,7 +107,7 @@ function App() {
                     onClick={previousMonth}
                     className="p-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white transition-all duration-200 hover:shadow-lg"
                   >
-                    <ChevronLeft size={20} />
+                    ◀️
                   </button>
                   <button
                     onClick={goToToday}
@@ -120,7 +119,7 @@ function App() {
                     onClick={nextMonth}
                     className="p-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white transition-all duration-200 hover:shadow-lg"
                   >
-                    <ChevronRight size={20} />
+                    ▶️
                   </button>
                 </div>
               </div>
@@ -189,7 +188,7 @@ function App() {
           {/* UPCOMING EVENTS */}
           <div className="bg-white rounded-2xl shadow-xl p-6">
             <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-              <Clock size={20} className="text-blue-600" />
+              🕐
               Upcoming Events
             </h2>
             <div className="space-y-3 max-h-96 overflow-y-auto">
@@ -248,7 +247,7 @@ function App() {
                 onClick={() => setSelectedDate(null)}
                 className="p-2 hover:bg-slate-100 rounded-lg transition"
               >
-                <X size={20} />
+                ✕
               </button>
             </div>
 
@@ -259,8 +258,7 @@ function App() {
                 <div key={idx} className={`p-4 rounded-lg border-l-4 ${colorClasses[event.color]}`}>
                   <p className="font-semibold">{event.title}</p>
                   <div className="flex items-center gap-2 mt-2 text-sm opacity-75">
-                    <Clock size={14} />
-                    {event.time}
+                    🕐 {event.time}
                   </div>
                 </div>
               ))}
