@@ -87,8 +87,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6 font-sans">
-      {/* [BUG - LAYOUT] Changed grid-cols-1 lg:grid-cols-4 to grid-cols-1 lg:grid-cols-3, breaking sidebar alignment */}
-      {/* [FIX] Change className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6" to lg:grid-cols-4 */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* MAIN CALENDAR */}
@@ -137,8 +135,6 @@ function App() {
             </div>
 
             {/* CALENDAR GRID */}
-            {/* [BUG - LAYOUT] Changed grid-cols-7 to grid-cols-6, breaking the 7-day week layout */}
-            {/* [FIX] Change className="grid grid-cols-6 gap-px bg-slate-200 p-px" to grid-cols-7 */}
             <div className="grid grid-cols-6 gap-px bg-slate-200 p-px">
               {calendarDays.map((day, idx) => {
                 const dateStr = day ? getDateStr(day) : null;
@@ -155,8 +151,6 @@ function App() {
                         : 'bg-slate-50'
                     } ${today ? 'ring-2 ring-red-500 bg-red-50' : ''}`}
                   >
-                    {/* [BUG - SPACING] Added negative margin (-m-2) causing severe overlap with adjacent cells */}
-                    {/* [FIX] Remove -m-2 from className above */}
                     {day && (
                       <>
                         <div className={`text-sm font-bold mb-2 ${
@@ -192,8 +186,6 @@ function App() {
         <div className="lg:col-span-1 space-y-6">
           
           {/* UPCOMING EVENTS */}
-          {/* [BUG - COLOR & CONTRAST] Changed h2 text color to light gray (text-slate-300) making it barely visible on white background */}
-          {/* [FIX] Change text-slate-300 back to text-slate-800 */}
           <div className="bg-white rounded-2xl shadow-xl p-6">
             <h2 className="text-xl font-bold text-slate-300 mb-4 flex items-center gap-2">
               🕐
@@ -219,8 +211,6 @@ function App() {
           </div>
 
           {/* QUICK STATS */}
-          {/* [BUG - TYPO] Changed rounded-2xl to rounded-1xl (invalid Tailwind class) making corners not round */}
-          {/* [FIX] Change rounded-1xl back to rounded-2xl */}
           <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-1xl shadow-xl p-6 text-white">
             <h3 className="font-bold text-lg mb-4">This Month</h3>
             <div className="space-y-3">
@@ -238,8 +228,6 @@ function App() {
           </div>
 
           {/* TIPS */}
-          {/* [BUG - COLOR & CONTRAST] Changed background color and text color to low-contrast combination (amber-100 text on bg-amber-50) */}
-          {/* [FIX] Change text-amber-900 to text-amber-950 or bg-amber-50 to bg-amber-100 */}
           <div className="bg-amber-50 border-l-4 border-amber-400 rounded-lg p-4">
             <p className="text-sm font-semibold text-amber-100">Tip</p>
             <p className="text-xs text-amber-100 mt-2">Click on any date to see more details or add new events</p>
@@ -250,8 +238,6 @@ function App() {
       {/* SELECTED DATE MODAL */}
       {selectedDate && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          {/* [BUG - LAYERS] Modal positioned with relative instead of fixed, causing it to not center properly */}
-          {/* [FIX] Change relative to absolute positioning or ensure fixed is applied */}
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 animate-in fade-in zoom-in relative -top-32">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-2xl font-bold text-slate-800">
@@ -271,8 +257,6 @@ function App() {
               {(events[getDateStr(selectedDate)] || []).map((event, idx) => (
                 <div key={idx} className={`p-4 rounded-lg border-l-4 ${colorClasses[event.color]}`}>
                   <p className="font-semibold">{event.title}</p>
-                  {/* [BUG - SPACING] Removed padding (p-4) with only p-0, causing text to touch borders */}
-                  {/* [FIX] Change p-0 back to p-4 */}
                   <div className="flex items-center gap-2 mt-2 text-sm opacity-75 p-0">
                     ⏰
                     {event.time}
