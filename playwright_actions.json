@@ -1,0 +1,5 @@
+{
+  "actions": [
+    { "name": "bug-10-OpenModal", "selector": "div.ring-2.ring-red-500" }
+  ]
+}
